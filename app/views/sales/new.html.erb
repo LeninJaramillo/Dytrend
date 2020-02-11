@@ -1,0 +1,9 @@
+<%= form_with model: @sale do |f|%>
+    <div>pic: <%= f.file_field :pic, required: true %></div>
+    <div> kind: <%= f.text_area :kind, required: true %></div>
+    <div> gender: <%= f.text_area :gender, required: true %></div>
+    <div> brand: <%= f.text_area :brand, required: true %></div>
+    <div> description: <%= f.text_area :description, required: true %></div>
+    <div> price: <%= f.number_field :price, required: true %></div>
+    <%= f.submit %>
+<% end %>
