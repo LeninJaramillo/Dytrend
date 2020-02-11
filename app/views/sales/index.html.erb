@@ -1,1 +1,10 @@
-display all sales with their users
+<% @sales.each do |post|%>
+    <%= link_to(image_tag(sales.image, class: "my-pic"), sale) %>
+    <p><%= sale.kind %></p>
+    <p><%= sale.gender %></p>
+    <p><%= sale.brand %></p>
+    <p><%= sale.description %></p>
+    <p><%= sale.price %></p>
+    <p><%= link_to sale.user.email, post.user%></p>
+
+<% end %>
