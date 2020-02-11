@@ -1,5 +1,9 @@
-<%= image_tag @post.image, class: "my-pic" %>
-<p><%= @post.caption %></p>
+<%= image_tag @sale.pic, class: "my-pic" %>
+<p><%= @sale.kind %></p>
+<p><%= @sale.gender %></p>
+<p><%= @sale.brand %></p>
+<p><%= @sale.description %></p>
+<p><%= @sale.price %></p>
 
 <% if current_user == @post.user %>
     <%= button_to "Delete", @post, method: :delete %>
