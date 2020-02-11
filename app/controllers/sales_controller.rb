@@ -23,7 +23,19 @@ class SalesController < ApplicationController
         end
     end
 
-    
+    def destroy
+        sale = Sale.find(params[:id])
+        if current_user == sale.user
+            sale.destroy
+            redirect_to "/sales"
+            flash[:notice] = "You have destroyed your sale"
+        else
+            redirect_back(fallback_location: root_path)
+            flash[:alert] = "Not authorized to delete sales of this user"
+        end
+
+    end
+
 
     private
     def sale_params

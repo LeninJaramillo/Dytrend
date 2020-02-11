@@ -1,4 +1,4 @@
-<%= image_tag @sale.pic, class: "my-pic" %>
+<%= image_tag @sale.pic, class: "my-pic" if @sale.pic.attached? %>
 <p><%= @sale.kind %></p>
 <p><%= @sale.gender %></p>
 <p><%= @sale.brand %></p>
