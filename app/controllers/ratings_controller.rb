@@ -5,6 +5,11 @@ class RatingsController < ApplicationController
 
     def create
         @rating = Rating.new
-        @rating.user_id
+        @rating.user_buyer.id = current_user
+        if @rating.save
+            redirect_to "/"
+            "/users/#{@rating.user_buyer.id}"
+            flash[:notice] = "You have rated"
+        end
     def
 end

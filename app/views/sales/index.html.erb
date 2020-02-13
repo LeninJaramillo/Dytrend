@@ -1,12 +1,23 @@
-<% @sales.each do |sale|%>
-    <%= link_to(image_tag(sale.pic), sale) if sale.pic.attached? %>
-    <p><%= sale.user.username %></p>
-    <p><%= sale.kind %></p>
-    <p><%= sale.gender %></p>
-    <p><%= sale.size %></p>
-    <p><%= sale.brand %></p>
-    <p><%= sale.description %></p>
-    <p><%= sale.price %></p>
-    <p><%= link_to sale.user.email, sale.user%></p>
-
-<% end %>
+<div class= "container">
+    <div class= "row" >
+        <% @sales.each do |sale|%>
+            <div class= "col-3">
+                <div class="card" style="width: 16rem;">
+                    <div class="card-img-top" >
+                        <%= link_to(image_tag(sale.pic, class: "my-card"), sale) if sale.pic.attached? %>
+                    </div>
+                    <div class= "card-body">
+                        <p class= "card-title"><%= sale.user.username %></p>
+                        <p><%= sale.kind %></p>
+                        <p><%= sale.gender %></p>
+                        <p><%= sale.size %></p>
+                        <p><%= sale.brand %></p>
+                        <p><%= sale.description %></p>
+                        <p><%= sale.price %></p>
+                        <p><%= link_to sale.user.email, sale.user%></p>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>
