@@ -33,12 +33,29 @@ class SalesController < ApplicationController
             redirect_back(fallback_location: root_path)
             flash[:alert] = "Not authorized to delete sales of this user"
         end
-
     end
 
+    def edit
+        @sale = Sale.find(params[:id])
+        if current_user != @sale.user
+        flash[:alert] = "Unauthorized request"
+        end
+    end
+
+    def update
+        @sale = Sale.find(params[:id])
+        if current_user == @sale.user
+            @sale.update(sale_params)
+            redirect_to @sale
+            flash[:notice] = "Update succesful"
+        else
+            redirect_back(fallback_location: root_path)
+            flash[:alert] = "Not authorized to update"
+        end
+    end
 
     private
     def sale_params
-        params.require(:sale).permit(:kind, :gender, :brand, :description, :price, :pic)
+        params.require(:sale).permit(:kind, :gender, :brand, :description, :price, :pic, :size)
     end
 end

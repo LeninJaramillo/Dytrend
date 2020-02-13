@@ -1,6 +1,8 @@
 <%= image_tag @sale.pic, class: "my-pic" if @sale.pic.attached? %>
+<p><%= @sale.user.username %></p>
 <p><%= @sale.kind %></p>
 <p><%= @sale.gender %></p>
+<p><%= @sale.size%></p>
 <p><%= @sale.brand %></p>
 <p><%= @sale.description %></p>
 <p><%= @sale.price %></p>
@@ -11,4 +13,4 @@
 <% end %>
 
 
-<%= link_to @sale.user.email, user_path %>
+<%= link_to @sale.user.username, user_path %>
