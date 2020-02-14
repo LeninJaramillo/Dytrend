@@ -1,10 +1,19 @@
-<%= form_with model: @sale do |f|%>
-    <div>pic: <%= f.file_field :pic, required: true %></div>
-    <div> kind: <%= f.text_area :kind, required: true %></div>
-    <div> gender: <%= f.text_area :gender, required: true %></div>
-    <div> size: <%= f.text_area :size, required: true %></div>
-    <div> brand: <%= f.text_area :brand, required: true %></div>
-    <div> description: <%= f.text_area :description, required: true %></div>
-    <div> price: <%= f.number_field :price, required: true %></div>
-    <%= f.submit %>
-<% end %>
+<section class="container-fluid bg2">
+  <section class="row">
+    <section class="col-5">
+      <div class="form-container2">
+
+        <%= form_with model: @sale do |f|%>
+            <div class="field form-group">pic: <%= f.file_field :pic, required: true, class: "form-control" %></div>
+            <div class="field form-group"> kind: <%= f.text_area :kind, required: true, class: "form-control" %></div>
+            <div class="field form-group"> gender: <%= f.text_area :gender, required: true, class: "form-control" %></div>
+            <div class="field form-group"> size: <%= f.text_area :size, required: true, class: "form-control" %></div>
+            <div class="field form-group"> brand: <%= f.text_area :brand, required: true, class: "form-control" %></div>
+            <div class="field form-group"> description: <%= f.text_area :description, required: true, class: "form-control" %></div>
+            <div class="field form-group"> price: <%= f.number_field :price, required: true, class: "form-control" %></div>
+            <%= f.submit class: "btn btn-secondary btn-block" %>
+        <% end %>
+
+    </section>
+  </section>
+</section>

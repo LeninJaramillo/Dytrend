@@ -2,19 +2,19 @@
     <div class= "row" >
         <% @sales.each do |sale|%>
             <div class= "col-3">
-                <div class="card" style="width: 16rem;">
-                    <div class="card-img-top" >
+                <div class="card margincard" style="width: 16rem;">
+                    <stamp class="card-img-top" >
                         <%= link_to(image_tag(sale.pic, class: "my-card"), sale) if sale.pic.attached? %>
-                    </div>
+                    </stamp>
                     <div class= "card-body">
-                        <p class= "card-title"><%= sale.user.username %></p>
-                        <p><%= sale.kind %></p>
-                        <p><%= sale.gender %></p>
-                        <p><%= sale.size %></p>
-                        <p><%= sale.brand %></p>
-                        <p><%= sale.description %></p>
-                        <p><%= sale.price %></p>
-                        <p><%= link_to sale.user.email, sale.user%></p>
+                        <p class="card-title"><%= sale.user.username %></p>
+                        <p class="card-text"><%= sale.kind %></p>
+                        <p class="card-text"><%= sale.gender %></p>
+                        <p class="card-text"><%= sale.size %></p>
+                        <p class="card-text"><%= sale.brand %></p>
+                        <p class="card-text"><%= sale.description %></p>
+                        <p class="card-text"><%= sale.price %></p>
+                        <p class="card-text"><%= link_to sale.user.email, sale.user%></p>
                     </div>
                 </div>
             </div>

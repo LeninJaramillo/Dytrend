@@ -8,19 +8,22 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">  
-  
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   </head>
 
   <body>
 
 <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+ <a class="navbar-brand" href="/sales">
+    <img src="/images/logo-dytrend.png" height="65" alt="">
+  </a>
 <% if user_signed_in? %>
-  <span class="span-color">Logged in as :  </span> <strong style="color: #fff;"><%= current_user.email %></strong>.
-  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+  <span class="span-color nav navbar-nav">Logged in as:</span> <strong style="color: #fff;"><%= current_user.email %></strong>.
+  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link alig' %> <span class="span-color alig-bar">|</span>
   <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
 <% else %>
-  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link lig-bar2 alig2' %> <span class="span-color alig-bar">|</span>
+  <%= link_to "Login", new_user_session_path, :class => 'navbar-link alig-bar2'  %>
 <% end %>
 </nav>
 

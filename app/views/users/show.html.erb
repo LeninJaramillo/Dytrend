@@ -1,7 +1,5 @@
 <p>this is my user: <%= @user.username %></p>
 
-
-
 <% @user.sales.each do |sale| %>
     <p><%= sale.kind %></p>
     <p><%= sale.gender %></p>
@@ -10,14 +8,14 @@
     <p><%= sale.price %></p>
 <% end %>
 
-<%= form_with model: @user.rating do |f|%>
-    <div> Rate me from 1 to 5: <%= f.text_area :rating, required: true %></div>
-    <div> Description: <%= f.text_area :description, required: true %></div>
-    <%= f.submit %>
-<% end %>
-
 <% sum = 0 %>
 <% @user.ratings.each do |r| %>
     <%sum += r.rating %>
 <%end %>
-<%= sum/@user.ratings.length if @user.rating.length != 0 %>
+<%= sum/@user.ratings.length if @user.ratings.length != 0 %>
+
+<%= form_with model: [@user, Rating.new] do |f|%>
+    <div> Rate me from 1 to 5: <%= f.select :rating, [1,2,3,4,5], required: true %></div>
+    <div> Description: <%= f.text_area :description, required: true %></div>
+    <%= f.submit %>
+<% end %>
